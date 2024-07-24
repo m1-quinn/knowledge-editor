@@ -9,8 +9,8 @@ Allows you to preview Help Center articles locally using VSCode and Live Server.
 Clone this repository to your local machine:
 
 ```sh
-git clone <repository-url>
-cd local-editor
+git clone https://github.com/m1-quinn/knowledge-editor.git
+cd knowledge-editor
 ```
 
 ### 2. Install Live Server Extension in VSCode
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.text())
         .then(data => {
             document.getElementById('content').innerHTML = data;
-            initializePlugins(); // Initialize your plugins after loading the content
+            initializePlugins();
         })
         .catch(error => console.error('Error loading article:', error));
 });
