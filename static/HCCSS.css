@@ -1,0 +1,909 @@
+html {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button, input, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+audio, canvas, iframe, img, svg, video {
+    vertical-align: middle;
+}
+
+.small, small {
+    font-size: 80%;
+    font-weight: 400;
+    line-height: 1;
+}
+
+dl {
+    margin-top: 0;
+    margin-bottom: calc(16px * 1.5);
+}
+
+dd, dt {
+    line-height: 1.5;
+    margin-bottom: calc(16px * 1.5 / 2);
+}
+
+dt {
+    font-weight: 700;
+}
+
+dd {
+    margin-left: 0;
+}
+
+.dl-horizontal:after, .dl-horizontal:before {
+    display: table;
+    content: '';
+}
+
+.dl-horizontal:after {
+    clear: both;
+}
+
+.dl-horizontal dt {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+abbr[data-original-title], abbr[title] {
+    cursor: help;
+    border-bottom: 1px dotted #818a91;
+}
+
+blockquote {
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #f7f7f9;
+    padding: calc(16px * 1.5 / 2) calc(16px * 1.5);
+    margin: 0 0 calc(16px * 1.5);
+    border-left: 5px solid #dee2e6;
+}
+
+blockquote.is-colored {
+    border-left: 5px solid var(--primary-color);
+}
+
+blockquote ol:first-child, blockquote p:first-child, blockquote ul:first-child {
+    margin-top: 0;
+}
+
+blockquote ol:last-child, blockquote p:last-child, blockquote ul:last-child {
+    margin-bottom: 0;
+}
+
+code {
+    border-radius: 4px !important;
+    padding: 20px !important;
+}
+
+address {
+    margin-bottom: calc(16px * 1.5);
+    font-style: normal;
+    line-height: 1.5;
+}
+
+.clearfix:after, .clearfix:before {
+    display: table;
+    content: '';
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.list-unstyled {
+    margin-left: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.hidden, .is-hidden {
+    display: none !important;
+}
+
+table {
+    background-color: transparent;
+}
+
+caption {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    color: #818a91;
+}
+
+caption, th {
+    text-align: left;
+}
+
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: calc(16px * 1.5);
+}
+
+.table td, .table th {
+    padding: 8px;
+    vertical-align: top;
+}
+
+.table td {
+    border-top: 1px solid #d3d6d8;
+}
+
+.table thead th {
+    vertical-align: bottom;
+}
+
+.table tbody + tbody {
+    border-top: 1px solid #d3d6d8;
+}
+
+.table .table {
+    background-color: #fff;
+}
+
+.table--color-header th {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.table--striped td, .table--striped th, .table--striped thead th {
+    border-color: #fff;
+}
+
+.table--hover tbody tr:hover, .table--striped tbody tr:nth-child(odd) {
+    background-color: #dee2e6;
+    color: inherit;
+}
+
+.table--bordered {
+    border: 1px solid #d3d6d8;
+}
+
+.table--bordered td, .table--bordered th {
+    border-left: 1px solid #d3d6d8;
+}
+
+.table-responsive {
+    min-height: .01%;
+    overflow-x: auto;
+}
+
+.embed, .embed-responsive {
+    position: relative;
+    display: block;
+    height: 0;
+    padding: 0;
+    padding-bottom: 56.25%;
+    margin-bottom: 30px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.embed img, .embed-responsive img {
+    width: 100%;
+}
+
+.embed embed, .embed iframe, .embed object, .embed video, .embed-responsive embed, .embed-responsive iframe, .embed-responsive object, .embed-responsive video {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.embed-responsive:focus, .embed:focus {
+    outline: 0 !important;
+}
+
+.embed-responsive--16by9 {
+    padding-bottom: 56.25%;
+}
+
+.embed-responsive--4by3 {
+    padding-bottom: 75%;
+}
+
+.list-bullet, .list-colored, .list-numbered {
+    list-style: none !important; /* Ensure no default list styling */
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    counter-reset: list; /* Reset counter for custom numbering */
+}
+
+/* List Colored */
+.list-colored > li {
+    position: relative;
+    padding-left: 26px;
+    counter-increment: list;
+    margin-bottom: calc(16px * 1.5 / 1.5) !important;
+}
+
+.list-colored > li:before {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    content: counter(list) ".";
+    width: 24px;
+    height: 24px;
+    color: var(--primary-color);
+    z-index: 1;
+    line-height: 24px;
+    font-weight: 500;
+}
+
+.list-colored ol,
+.list-colored ul {
+    list-style: none;
+    counter-reset: none;
+    margin-bottom: 14px;
+}
+
+.list-bullet > li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 10px;
+}
+
+.list-bullet > li:before {
+    position: absolute;
+    left: 0;
+    top: 4px;
+    font-size: 20px;
+    font-weight: 400;
+    font-style: normal;
+    content: '';
+    width: 16px;
+    height: 16px;
+    background-image: url("data:image/svg+xml,%3Csvg aria-hidden='true' data-prefix='far' data-icon='check' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' class='svg-inline--fa fa-check fa-w-16 fa-9x'%3E%3Cpath fill='%236A6A6A' d='M435.848 83.466L172.804 346.51l-96.652-96.652c-4.686-4.686-12.284-4.686-16.971 0l-28.284 28.284c-4.686 4.686-4.686 12.284 0 16.971l133.421 133.421c4.686 4.686 12.284 4.686 16.971 0l299.813-299.813c4.686-4.686 4.686-12.284 0-16.971l-28.284-28.284c-4.686-4.686-12.284-4.686-16.97 0z' class=''%3E%3C/path%3E%3C/svg%3E");
+    background-size: cover;
+}
+
+.list-bullet ul {
+    list-style: none;
+    counter-reset: none;
+    margin-bottom: 14px;
+}
+
+.list-numbered > li {
+    position: relative;
+    padding-left: 26px;
+    counter-increment: list;
+    margin-bottom: calc(16px * 1.5 / 1.5) !important;
+}
+
+.list-numbered > li:before {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    content: counter(list) ".";
+    width: 24px;
+    height: 24px;
+    color: var(--primary-color);
+    z-index: 1;
+    line-height: 24px;
+    font-weight: 500;
+}
+
+.list-numbered ol,
+.list-numbered ul {
+    list-style: none;
+    counter-reset: none; /* Do not reset counter for nested lists */
+    margin-bottom: 14px;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-primary {
+    background-color: var(--primary-color);
+}
+
+.text-info {
+    background-color: var(--info-color);
+}
+
+.text-warning {
+    background-color: var(--warning-color);
+}
+
+.text-danger {
+    background-color: var(--danger-color);
+}
+
+.text-success {
+    background-color: var(--primary-color);
+}
+
+.accordion {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding-top: 0;
+    margin-bottom: calc(16px * 1.5);
+}
+
+.accordion__item-title {
+    position: relative;
+    font-size: calc(16px * 1.25);
+    padding: 10px 10px 10px 42px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s, color 0.3s;
+    text-align: left;
+}
+
+.accordion__item-title:before {
+    content: url('data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%3C!--%20License%3A%20Apache.%20Made%20by%20bytedance%3A%20https%3A%2F%2Fgithub.com%2Fbytedance%2FIconPark%20--%3E%3Csvg%20width%3D%2220px%22%20height%3D%2220px%22%20viewBox%3D%220%200%2048%2048%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M37%2018L25%2030L13%2018%22%20stroke%3D%22%23000000%22%20stroke-width%3D%224%22%20stroke-linecap%3D%22square%22%20stroke-linejoin%3D%22square%22%2F%3E%3C%2Fsvg%3E');
+    position: absolute;
+    left: 12px;
+    transition: transform 0.3s;
+}
+
+.accordion__item-title--active {
+    background-color: #f0f0f0;
+}
+
+.accordion__item-title--active:before {
+    transform: rotate(180deg);
+}
+
+.accordion__item-content {
+    max-height: 0;
+    overflow: hidden;
+    margin: 0px 20px;
+    padding: 20px 0px;
+    display: none;
+}
+
+.accordion__item-content *:last-child {
+    padding-bottom: 0;
+}
+
+.accordion__item-title--active + .accordion__item-content {
+    max-height: 10000px;
+    margin: 0px 20px;
+    padding: 20px 0px;
+}
+
+.accordion__item-content.is-active {
+    margin: 0px 20px;
+    padding: 20px 0px;
+}
+
+.accordion__item {
+    border-top: .5px solid #ddd;
+}
+
+.tabs {
+    margin-bottom: calc(16px * 1.5);
+}
+
+.tab {
+    display: block;
+    border: 1px solid #ddd;
+    padding: 30px;
+    margin-top: -1px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.tab p:first-child {
+    margin-top: 0;
+}
+
+.tab p:last-child {
+    margin-bottom: 0;
+}
+
+.tab pre {
+    margin-top: 0;
+}
+
+.tab:nth-child(2) {
+    border-top-left-radius: 0;
+}
+
+.tabs-link {
+    display: block;
+    margin: 0;
+    cursor: pointer;
+    padding: 8px 30px;
+    color: #2c2d30;
+    font-weight: 600;
+    border-width: 1px 1px 0;
+    border-style: solid;
+    border-color: transparent;
+}
+
+.tabs-link:hover {
+    color: var(--primary-color);
+}
+
+.tabs-link.is-active {
+    border-color: #ddd;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.tabs-link.is-active:hover {
+    color: var(--primary-color);
+    cursor: default;
+}
+
+.tabs--colored-1 .tab {
+    background-color: #f7f7f9 !important;
+}
+
+.tabs--colored-1 .tabs-link.is-active {
+    background-color: #f7f7f9;
+    border-bottom-color: #f7f7f9;
+}
+
+.tabs--colored-2 .tabs-menu {
+    border-bottom: 1px solid #dadce0;
+}
+
+.tabs--colored-2 .tabs-link {
+    border-left: .1875rem solid transparent;
+    border-right: .1875rem solid transparent;
+    padding: 0 10px;
+    line-height: 46px;
+    font-size: 14px;
+    color: #5f6368;
+    font-weight: 500;
+    border-radius: 0;
+    border-top: 0;
+    margin-bottom: -1px;
+}
+
+.tabs--colored-2 .tabs-link:hover {
+    color: #5f6368;
+}
+
+.tabs--colored-2 .tabs-link:active {
+    background-color: #efefef;
+}
+
+.tabs--colored-2 .tabs-link.is-active {
+    border-bottom: .1875rem solid black;
+    color: var(--primary-text-color);
+    border-radius: 0;
+}
+
+.tabs--colored-2 .tabs-link.is-active:hover {
+    color: var(--primary-text-color);
+}
+
+.tabs--colored-2 .tab {
+    background-color: transparent;
+    padding: 32px 0 0;
+    border-radius: 0;
+    border: none;
+}
+
+.image-with-border {
+    padding: 10px;
+    border: 1px solid #d3d6d8;
+    border-radius: 4px;
+}
+
+.image-with-shadow {
+    box-shadow: 0 5px 15px 2px #55595c;
+}
+
+.image-with-lightbox {
+    cursor: pointer;
+}
+
+.image-overlay {
+    position: relative;
+}
+
+.image-overlay:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, .3);
+}
+
+.image-with-video-icon {
+    position: relative;
+    display: block;
+}
+
+.image-with-video-icon img {
+    width: 100%;
+}
+
+.image-with-video-icon:before {
+    content: '';
+    font-size: 0;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 30px 0 30px 60px;
+    border-color: transparent transparent transparent #fff;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    transition: -webkit-transform .6s ease;
+    transition: transform .6s ease;
+    transition: transform .6s ease, -webkit-transform .6s ease;
+    z-index: 3;
+}
+
+.image-with-video-icon:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .3);
+    z-index: 2;
+}
+
+.image-with-video-icon:active:before, .image-with-video-icon:hover:before {
+    -webkit-transform: translate(-50%, -50%) scale(1.1);
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.callout {
+    padding: calc(16px * 1.5) 20px;
+    margin-bottom: calc(16px * 1.5);
+    margin-top: calc(16px * 1.5);
+    background-color: #dee2e6;
+    border-left-width: 5px;
+    border-left-style: solid;
+}
+
+.callout p:first-child {
+    margin-top: 0;
+}
+
+.callout p:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.callout--transparent {
+    background-color: transparent;
+    border-width: 1px;
+    border-color: #dedede;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, .14);
+}
+
+.callout--success {
+    color: var(--primary-text-color);
+    background-color: #d9ecfc;
+    border-color: var(--success-color);
+}
+
+.callout--success .callout__title {
+    color: var(--success-color);
+}
+
+.callout--info {
+    color: var(--primary-text-color);
+    background-color: #e3f4f9;
+    border-color: var(--info-color);
+}
+
+.callout--info .callout__title {
+    color: var(--info-color);
+}
+
+.callout--warning {
+    color: var(--primary-text-color);
+    background-color: #ffedd2;
+    border-color: var(--warning-color);
+}
+
+.callout--warning .callout__title {
+    color: var(--warning-color);
+}
+
+.callout--danger {
+    color: var(--primary-text-color);
+    background-color: #ffebeb;
+    border-color: var(--danger-color);
+}
+
+.callout--danger .callout__title {
+    color: var(--danger-color);
+}
+
+.callout--primary {
+    color: var(--primary-text-color);
+    background-color: #eed9ff;
+    border-color: #D4A0FF;
+}
+
+.callout--primary .callout__title {
+    color: var(--primary-color);
+}
+
+.callout--dashed {
+    border-width: 1px;
+    border-style: dashed;
+}
+
+.note {
+    position: relative;
+    margin-bottom: calc(16px * 1.5);
+    padding-left: 12px;
+    border-left: calc(2px * 4) solid transparent;
+    color: #5d5f65;
+}
+
+.note p:first-child {
+    margin-top: 0;
+}
+
+.note p:last-child {
+    margin-bottom: 0;
+}
+
+.note-title {
+    margin-bottom: calc(16px * 1.5 / 2);
+    font-weight: 600;
+}
+
+.note--default, .note-default {
+    border-color: #818a91;
+}
+
+.note--default .note-title, .note-default .note-title {
+    color: #818a91;
+}
+
+.note--info, .note-info {
+    border-color: #5bc0de;
+}
+
+.note--info .note-title, .note-info .note-title {
+    color: #5bc0de;
+}
+
+.note--warning, .note-warning {
+    border-color: #fad782;
+}
+
+.note--warning .note-title, .note-warning .note-title {
+    color: #fad782;
+}
+
+.note--success, .note-success {
+    border-color: var(--primary-color);
+}
+
+.note--success .note-title, .note-success .note-title {
+    color: var(--primary-color);
+}
+
+.note--danger, .note-danger {
+    border-color: #ff5252;
+}
+
+.note--danger .note-title, .note-danger .note-title {
+    color: #ff5252;
+}
+
+@media (min-width: 768px) {
+    .dl-horizontal dt {
+        width: 30%;
+        float: left;
+        clear: both;
+        padding-right: 15px;
+    }
+    .dl-horizontal dd {
+        width: 70%;
+        float: right;
+    }
+    .tab {
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+    }
+    .tabs-link {
+        display: inline-block;
+    }
+    .tabs-link.is-active {
+        border-bottom: 1px solid #fff;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .table-responsive {
+        width: 100%;
+        margin-bottom: calc(16px * 1.5 * .75);
+        overflow-y: hidden;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        border: 1px solid #d3d6d8;
+    }
+    .table-responsive > .table {
+        margin-bottom: 0;
+    }
+    .table-responsive > .table > tbody > tr > td, .table-responsive > .table > tbody > tr > th, .table-responsive > .table > tfoot > tr > td, .table-responsive > .table > tfoot > tr > th, .table-responsive > .table > thead > tr > td, .table-responsive > .table > thead > tr > th {
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 767px) {
+    .tabs-link {
+        border-top-color: #ddd;
+        border-left-color: #ddd;
+        border-right-color: #ddd;
+    }
+    .tabs-link:first-child {
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+    }
+}
+
+[dir=rtl] .list-colored > li {
+    padding-left: 0;
+    padding-right: 26px;
+}
+
+[dir=rtl] .list-colored > li:before {
+    left: unset;
+    right: 0;
+}
+
+[dir=rtl] .list-bullet,
+[dir=rtl] .list-colored {
+    padding-right: 0 !important;
+}
+
+[dir=rtl] .list-bullet > li {
+    padding-left: 0;
+    padding-right: 30px;
+}
+
+[dir=rtl] .list-bullet > li:before {
+    left: unset;
+    right: 0;
+}
+
+[dir=rtl] .welcome__image {
+    right: unset;
+    left: 300px;
+    transform: translate(-50%, -50%);
+}
+
+[dir=rtl] .callout:not(.callout--dashed) {
+    border-left: none;
+    border-right-width: 5px;
+    border-right-style: solid;
+}
+
+[dir=rtl] caption,
+[dir=rtl] th {
+    text-align: right;
+}
+
+[dir=rtl] .sidebar__item {
+    padding-right: 20px;
+    padding-left: 40px;
+}
+
+.sidebar__show-more {
+    display: block;
+    padding: 16px 20px;
+}
+
+/* Set margin for paragraphs */
+p {
+    padding-bottom: calc(16px * 1.5);
+}
+
+iframe {
+    max-width: 90vw !important;
+}
+
+.fa-exclamation-triangle{
+    
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    content: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C!--!Font%20Awesome%20Free%206.5.2%20by%20%40fontawesome%20-%20https%3A%2F%2Ffontawesome.com%20License%20-%20https%3A%2F%2Ffontawesome.com%2Flicense%2Ffree%20Copyright%202024%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M256%2032c14.2%200%2027.3%207.5%2034.5%2019.8l216%20368c7.3%2012.4%207.3%2027.7%20.2%2040.1S486.3%20480%20472%20480H40c-14.3%200-27.6-7.7-34.7-20.1s-7-27.8%20.2-40.1l216-368C228.7%2039.5%20241.8%2032%20256%2032zm0%20128c-13.3%200-24%2010.7-24%2024V296c0%2013.3%2010.7%2024%2024%2024s24-10.7%2024-24V184c0-13.3-10.7-24-24-24zm32%20224a32%2032%200%201%200%20-64%200%2032%2032%200%201%200%2064%200z%22%2F%3E%3C%2Fsvg%3E") !important;
+}
+
+.fa-info-circle {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    content: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C!--!Font%20Awesome%20Free%206.5.2%20by%20%40fontawesome%20-%20https%3A%2F%2Ffontawesome.com%20License%20-%20https%3A%2F%2Ffontawesome.com%2Flicense%2Ffree%20Copyright%202024%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M256%20512A256%20256%200%201%200%20256%200a256%20256%200%201%200%200%20512zM216%20336h24V272H216c-13.3%200-24-10.7-24-24s10.7-24%2024-24h48c13.3%200%2024%2010.7%2024%2024v88h8c13.3%200%2024%2010.7%2024%2024s-10.7%2024-24%2024H216c-13.3%200-24-10.7-24-24s10.7-24%2024-24zm40-208a32%2032%200%201%201%200%2064%2032%2032%200%201%201%200-64z%22%2F%3E%3C%2Fsvg%3E") !important;
+}
+
+.fa-question {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    content: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20320%20512%22%3E%3C!--!Font%20Awesome%20Free%206.5.2%20by%20%40fontawesome%20-%20https%3A%2F%2Ffontawesome.com%20License%20-%20https%3A%2F%2Ffontawesome.com%2Flicense%2Ffree%20Copyright%202024%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M80%20160c0-35.3%2028.7-64%2064-64h32c35.3%200%2064%2028.7%2064%2064v3.6c0%2021.8-11.1%2042.1-29.4%2053.8l-42.2%2027.1c-25.2%2016.2-40.4%2044.1-40.4%2074V320c0%2017.7%2014.3%2032%2032%2032s32-14.3%2032-32v-1.4c0-8.2%204.2-15.8%2011-20.2l42.2-27.1c36.6-23.6%2058.8-64.1%2058.8-107.7V160c0-70.7-57.3-128-128-128H144C73.3%2032%2016%2089.3%2016%20160c0%2017.7%2014.3%2032%2032%2032s32-14.3%2032-32zm80%20320a40%2040%200%201%200%200-80%2040%2040%200%201%200%200%2080z%22%2F%3E%3C%2Fsvg%3E") !important;
+}
+
+.fa-lightbulb {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    content: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20384%20512%22%3E%3C!--!Font%20Awesome%20Free%206.5.2%20by%20%40fontawesome%20-%20https%3A%2F%2Ffontawesome.com%20License%20-%20https%3A%2F%2Ffontawesome.com%2Flicense%2Ffree%20Copyright%202024%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M272%20384c9.6-31.9%2029.5-59.1%2049.2-86.2l0%200c5.2-7.1%2010.4-14.2%2015.4-21.4c19.8-28.5%2031.4-63%2031.4-100.3C368%2078.8%20289.2%200%20192%200S16%2078.8%2016%20176c0%2037.3%2011.6%2071.9%2031.4%20100.3c5%207.2%2010.2%2014.3%2015.4%2021.4l0%200c19.8%2027.1%2039.7%2054.4%2049.2%2086.2H272zM192%20512c44.2%200%2080-35.8%2080-80V416H112v16c0%2044.2%2035.8%2080%2080%2080zM112%20176c0%208.8-7.2%2016-16%2016s-16-7.2-16-16c0-61.9%2050.1-112%20112-112c8.8%200%2016%207.2%2016%2016s-7.2%2016-16%2016c-44.2%200-80%2035.8-80%2080z%22%2F%3E%3C%2Fsvg%3E") !important;
+}
+
+.fa-desktop {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    content: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20640%20512%22%3E%3C!--!Font%20Awesome%20Free%206.5.2%20by%20%40fontawesome%20-%20https%3A%2F%2Ffontawesome.com%20License%20-%20https%3A%2F%2Ffontawesome.com%2Flicense%2Ffree%20Copyright%202024%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M128%2032C92.7%2032%2064%2060.7%2064%2096V352h64V96H512V352h64V96c0-35.3-28.7-64-64-64H128zM19.2%20384C8.6%20384%200%20392.6%200%20403.2C0%20445.6%2034.4%20480%2076.8%20480H563.2c42.4%200%2076.8-34.4%2076.8-76.8c0-10.6-8.6-19.2-19.2-19.2H19.2z%22%2F%3E%3C%2Fsvg%3E") !important;
+}
+
+.fa-mobile {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    content: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20384%20512%22%3E%3C!--!Font%20Awesome%20Free%206.5.2%20by%20%40fontawesome%20-%20https%3A%2F%2Ffontawesome.com%20License%20-%20https%3A%2F%2Ffontawesome.com%2Flicense%2Ffree%20Copyright%202024%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M80%200C44.7%200%2016%2028.7%2016%2064V448c0%2035.3%2028.7%2064%2064%2064H304c35.3%200%2064-28.7%2064-64V64c0-35.3-28.7-64-64-64H80zm80%20432h64c8.8%200%2016%207.2%2016%2016s-7.2%2016-16%2016H160c-8.8%200-16-7.2-16-16s7.2-16%2016-16z%22%2F%3E%3C%2Fsvg%3E") !important;
+}
+
+.fa-android {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    content: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20576%20512%22%3E%3C!--!Font%20Awesome%20Free%206.5.2%20by%20%40fontawesome%20-%20https%3A%2F%2Ffontawesome.com%20License%20-%20https%3A%2F%2Ffontawesome.com%2Flicense%2Ffree%20Copyright%202024%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M420.6%20301.9a24%2024%200%201%201%2024-24%2024%2024%200%200%201%20-24%2024m-265.1%200a24%2024%200%201%201%2024-24%2024%2024%200%200%201%20-24%2024m273.7-144.5%2047.9-83a10%2010%200%201%200%20-17.3-10h0l-48.5%2084.1a301.3%20301.3%200%200%200%20-246.6%200L116.2%2064.5a10%2010%200%201%200%20-17.3%2010h0l47.9%2083C64.5%20202.2%208.2%20285.6%200%20384H576c-8.2-98.5-64.5-181.8-146.9-226.6%22%2F%3E%3C%2Fsvg%3E") !important;
+}
+
+.fa-apple{
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    content: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20384%20512%22%3E%3C!--!Font%20Awesome%20Free%206.5.2%20by%20%40fontawesome%20-%20https%3A%2F%2Ffontawesome.com%20License%20-%20https%3A%2F%2Ffontawesome.com%2Flicense%2Ffree%20Copyright%202024%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M318.7%20268.7c-.2-36.7%2016.4-64.4%2050-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3%2020.7-88.5%2020.7-15%200-49.4-19.7-76.4-19.7C63.3%20141.2%204%20184.8%204%20273.5q0%2039.3%2014.4%2081.2c12.8%2036.7%2059%20126.7%20107.2%20125.2%2025.2-.6%2043-17.9%2075.8-17.9%2031.8%200%2048.3%2017.9%2076.4%2017.9%2048.6-.7%2090.4-82.5%20102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4%2024.8-61.9%2024-72.5-24.1%201.4-52%2016.4-67.9%2034.9-17.5%2019.8-27.8%2044.3-25.6%2071.9%2026.1%202%2049.9-11.4%2069.5-34.3z%22%2F%3E%3C%2Fsvg%3E") !important;
+}
+
+.fa-check {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    content: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C!--!Font%20Awesome%20Free%206.5.2%20by%20%40fontawesome%20-%20https%3A%2F%2Ffontawesome.com%20License%20-%20https%3A%2F%2Ffontawesome.com%2Flicense%2Ffree%20Copyright%202024%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M438.6%20105.4c12.5%2012.5%2012.5%2032.8%200%2045.3l-256%20256c-12.5%2012.5-32.8%2012.5-45.3%200l-128-128c-12.5-12.5-12.5-32.8%200-45.3s32.8-12.5%2045.3%200L160%20338.7%20393.4%20105.4c12.5-12.5%2032.8-12.5%2045.3%200z%22%2F%3E%3C%2Fsvg%3E") !important;
+}
+
+.fa-spinner{
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    content: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C!--!Font%20Awesome%20Free%206.5.2%20by%20%40fontawesome%20-%20https%3A%2F%2Ffontawesome.com%20License%20-%20https%3A%2F%2Ffontawesome.com%2Flicense%2Ffree%20Copyright%202024%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M304%2048a48%2048%200%201%200%20-96%200%2048%2048%200%201%200%2096%200zm0%20416a48%2048%200%201%200%20-96%200%2048%2048%200%201%200%2096%200zM48%20304a48%2048%200%201%200%200-96%2048%2048%200%201%200%200%2096zm464-48a48%2048%200%201%200%20-96%200%2048%2048%200%201%200%2096%200zM142.9%20437A48%2048%200%201%200%2075%20369.1%2048%2048%200%201%200%20142.9%20437zm0-294.2A48%2048%200%201%200%2075%2075a48%2048%200%201%200%2067.9%2067.9zM369.1%20437A48%2048%200%201%200%20437%20369.1%2048%2048%200%201%200%20369.1%20437z%22%2F%3E%3C%2Fsvg%3E") !important;
+}
