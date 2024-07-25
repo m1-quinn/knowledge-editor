@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const articlePath = 'articles/article.html';
+    const articlePath = 'articles/formattingGuidelines.html';
     fetch(articlePath)
         .then(response => response.text())
         .then(data => {

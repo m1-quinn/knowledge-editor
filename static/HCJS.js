@@ -49,7 +49,7 @@ class Spoiler {
 
             if (withoutAnimation) {
                 this.spoiler.style.display = 'block';
-                this.spoiler.style.maxHeight = this.spoiler.scrollHeight + 'px';
+                this.spoiler.style.maxHeight = 'none';
                 this.spoiler.style.overflow = 'visible';
                 this.spoiler.style.paddingTop = '20px';
                 this.spoiler.style.paddingBottom = '20px';
@@ -70,12 +70,14 @@ class Spoiler {
 
                 this.spoiler.addEventListener('transitionend', (event) => {
                     if (event.propertyName === 'max-height') {
-                        this.spoiler.style.maxHeight = '';
+                        this.spoiler.style.maxHeight = 'none';
                         this.spoiler.style.overflow = 'visible';
                         this.container.dispatchEvent(new Event(this.options.eventOpened));
                     }
                 }, { once: true });
             }
+
+            this.recalculateParentHeight();
         }
     }
 
@@ -114,6 +116,16 @@ class Spoiler {
                     }
                 }, { once: true });
             }
+
+            this.recalculateParentHeight();
+        }
+    }
+
+    recalculateParentHeight() {
+        const parentAccordion = this.container.closest('.accordion__item-content');
+        if (parentAccordion) {
+            parentAccordion.style.maxHeight = 'none';
+            parentAccordion.style.maxHeight = parentAccordion.scrollHeight + 'px';
         }
     }
 }
@@ -215,6 +227,15 @@ class Tabs {
             newActiveLink.classList.add('is-active');
             newActiveTab.classList.remove('is-hidden');
             this.container.dispatchEvent(new Event(this.options.eventOpened));
+            setTimeout(() => this.recalculateAccordionHeight(), 0); // Adjust the height after the tab switch
+        }
+    }
+
+    recalculateAccordionHeight() {
+        const parentAccordion = this.container.closest('.accordion__item-content');
+        if (parentAccordion) {
+            parentAccordion.style.maxHeight = 'none';
+            parentAccordion.style.maxHeight = parentAccordion.scrollHeight + 'px';
         }
     }
 
@@ -225,11 +246,16 @@ class Tabs {
     }
 }
 
-// Helper function to initialize nested accordions
-function initializeNestedAccordions(container) {
-    const nestedContainers = container.querySelectorAll('.accordion');
-    nestedContainers.forEach((nestedContainer) => {
-        new Accordion(nestedContainer, {});
+// Helper function to initialize nested accordions and tabs
+function initializeNestedAccordionsAndTabs(container) {
+    const nestedAccordions = container.querySelectorAll('.accordion');
+    nestedAccordions.forEach((nestedAccordion) => {
+        new Accordion(nestedAccordion, {});
+    });
+
+    const nestedTabs = container.querySelectorAll('.tabs');
+    nestedTabs.forEach((nestedTab) => {
+        new Tabs(nestedTab, {});
     });
 }
 
@@ -238,6 +264,7 @@ function initializeAccordion(containerSelector, options) {
     const containers = document.querySelectorAll(containerSelector);
     containers.forEach((container) => {
         new Accordion(container, options);
+        initializeNestedAccordionsAndTabs(container); // Ensure nested components are initialized
     });
 }
 
@@ -246,5 +273,6 @@ function initializeTabs(containerSelector, options) {
     const containers = document.querySelectorAll(containerSelector);
     containers.forEach((container) => {
         new Tabs(container, options);
+        initializeNestedAccordionsAndTabs(container); // Ensure nested components are initialized
     });
 }
